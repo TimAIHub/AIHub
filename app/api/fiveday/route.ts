@@ -1,0 +1,29 @@
+
+import { NextRequest, NextResponse } from "next/server";
+
+export async function GET(req: NextRequest) {
+
+    try {
+        const apiKey = 'abca229f3b7ee34ad625ca10ff8799ed' //process.env.OPENWEATHERMAP_API_KEY;
+        const searchParams =  req.nextUrl.searchParams;
+
+        const lat = searchParams.get("lat");
+        const lon = searchParams.get("lon");
+
+        const url = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+
+        const dailyRes = await fetch(url, {
+            next: {
+                revalidate : 3600
+            },
+        });
+        
+        const dailyData = await dailyRes.json();
+
+        console.log(`Forecast data fetched ${JSON.stringify(dailyData)}`);
+        return NextResponse.json(dailyData);
+    } catch (error) {
+        console.log('Error in getting daily data');
+        return new Response("Error in getting daily data", {status: 500});
+    }
+}

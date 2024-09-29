@@ -2,6 +2,13 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+
+https://www.youtube.com/watch?v=rscl9VwwnQg&ab_channel=TheCodeDealer
+
+https://github.com/PRIYANKAec/Precision-Weather-Intelligence
+
+https://github.com/eddy-richards/weather-app/tree/main
+
 First, run the development server:
 
 ```bash
