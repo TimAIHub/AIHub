@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
     try {
-        const apiKey = "abca229f3b7ee34ad625ca10ff8799ed";//process.env.API_KEY;
+        const apiKey = process.env.OPENWEATHERMAP_API_KEY;//process.env.API_KEY;
         const searchParams = req.nextUrl.searchParams;
 
         const city = searchParams.get("search");
